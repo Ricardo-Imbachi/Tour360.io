@@ -1,20 +1,4 @@
-<head >
-    <title>Tour360</title>
-</head>
-<body> 
-   
-    <h1>Hola Vieja </h1>
-    <button>Click Here</button>
-    <!-- <input type="file" id="fileInput" onchange="handleFiles(console.log("Hola"))"> -->
-    <form>
-        <input type="file" id="fileElem" multiple accept="image/*"  onchange="handleFiles(this.files)">
-      </form>
-      <a href="javascript:doClick()">Seleccione algunos archivos</a>
-      <div id="fileList">
-        <p>¡No se han seleccionado archivos!</p>
-      </div>
-      <script>
-      function handleFiles(files) {
+function handleFiles(files) {
     var d = document.getElementById("fileList");
     if (!files.length) {
       d.innerHTML = "<p>¡No se han seleccionado archivos!</p>";
@@ -38,7 +22,4 @@
         li.appendChild(info);
       }
     }
-  }        
-      </script>
-    
-</body>
+  }
