@@ -1,3 +1,4 @@
+<html lang="en">
 <head >
     <title>Tour360</title>
     <style>
@@ -19,8 +20,37 @@
         <input type="file" id="fileInput" accept="image/*" required>
         <button type="submit">Subir Imagen</button>
     </form>
+    
+    <form id="Get">
+    <button id="GetFiles" type="button">Get Files</button>
+    <button id="GetFiles" type="button" onclick="Test()">Test</button>
+    <script src="GetFiles.js"></script>
+    <script>
+     function Test()
+    {
+        const fileUrl = './key.txt'; // Cambia esta URL por la URL real de tu archivo
+
+        fetch(fileUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Contenido del archivo:', data);
+                document.getElementById('file-content').textContent = data;
+            })
+            .catch(error => {
+                console.error('Hubo un problema con la solicitud fetch:', error);
+            });
+    }
+    </script>
+    </form>
 
     <script src="UploadImage.js"></script>
-    <img id="BG" src="BG.jpg" width="720"></img>
+    <img id="BG" src="BG.jpg" width="720" title="BG"></img>
+    <div id="div1">Imagenes</div>
     
 </body>
+</html>
