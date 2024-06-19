@@ -38,7 +38,8 @@
                 return response.text();
             })
             .then(data => {
-                console.log('Contenido del archivo:', data);
+                var textData = data.replace("\n", "")
+                console.log('Contenido del archivo:', textData);
                 //document.getElementById('file-content').textContent = data;
             })
             .catch(error => {
