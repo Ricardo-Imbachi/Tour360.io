@@ -1,6 +1,23 @@
 document.getElementById('uploadForm').addEventListener('submit', function(event) {
     event.preventDefault();
+    const fileUrl = './key.txt'; // Cambia esta URL por la URL real de tu archivo
 
+    let key="";
+    fetch(fileUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            key = data.replace("\n", "")
+            console.log('Contenido del archivo:', textData);
+            
+        })
+        .catch(error => {
+            console.error('Hubo un problema con la solicitud fetch:', error);
+        });
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
 
@@ -21,7 +38,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
         fetch('https://api.github.com/repos/ricardo-imbachi/Tour360.io/contents/ImageTest/' + file.name, {
             method: 'PUT',
             headers: {
-               
+                'Authorization': `Bearer ${key}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
