@@ -30,7 +30,6 @@ fetch(url, {
       image.setAttribute('src', url);
       //image.setAttribute('width', 720);
       image.setAttribute('height', 720);
-      image.re
       newDiv.appendChild(image); //añade texto al div creado.
 
       // añade el elemento creado y su contenido al DOM
