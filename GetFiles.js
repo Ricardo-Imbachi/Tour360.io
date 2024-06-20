@@ -28,7 +28,8 @@ fetch(url, {
       let image = document.createElement("img");
       let url=file.download_url;
       image.setAttribute('src', url);
-      image.setAttribute('width', 720);
+      //image.setAttribute('width', 720);
+      image.setAttribute('height', 720);
       image.re
       newDiv.appendChild(image); //añade texto al div creado.
 
